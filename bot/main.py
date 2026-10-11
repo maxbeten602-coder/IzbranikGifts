@@ -45,7 +45,7 @@ if not re.fullmatch(r"\d{6,}:[A-Za-z0-9_-]{30,}", BOT_TOKEN):
         "\n\nBOT_TOKEN не задан или неверный (сейчас: "
         + ("пусто" if not BOT_TOKEN else f"{len(BOT_TOKEN)} символов") + ").\n"
         "Открой на хостинге раздел Variables / Переменные окружения и добавь переменную\n"
-        "  BOT_TOKEN = 123456789:AAxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx   (токен целиком из @BotFather, без кавычек и пробелов)\n"
+        "  BOT_TOKEN = 8849731352:AAFt41-qeEOsU3TijllkxWMGGWNUWAsZErw   (токен целиком из @BotFather, без кавычек и пробелов)\n"
         "и перезапусти деплой.\n"
     )
 WEBAPP_URL = os.getenv("WEBAPP_URL", "https://maxbeten602-coder.github.io/IzbranikGifts/")
