@@ -1,6 +1,6 @@
 IZBRANNIK GIFT — ВСЁ В ОДНОЙ ПАПКЕ
 ================================
-bot/ + main.py + .env ... — Telegram-бот (@nexvendrop_bot)
+bot/ + main.py + .env ... — Telegram-бот (@IzbrannikStar_bot)
 site/                     — мини-апп (сайт)
 
 1) САЙТ -> GitHub Pages (https://maxbeten602-coder.github.io/IzbranikGifts/)
@@ -13,7 +13,7 @@ site/                     — мини-апп (сайт)
    (requirements.txt подтянется сам). Переменные уже в .env (токен, админ 8133917568, WEBAPP_URL).
    ПК (Windows): запусти start_bot.bat (автозапуск: autostart_install.bat).
 
-3) BotFather: /mybots -> @nexvendrop_bot -> Bot Settings -> Menu Button / Configure Mini App ->
+3) BotFather: /mybots -> @IzbrannikStar_bot -> Bot Settings -> Menu Button / Configure Mini App ->
    URL: https://maxbeten602-coder.github.io/IzbranikGifts/
 
 4) БАЗА: Firebase проект nexora-aa0f3 -> Firestore Database -> Create -> правила из site/FIREBASE_RULES.txt.

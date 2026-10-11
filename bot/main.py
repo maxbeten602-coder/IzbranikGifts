@@ -75,7 +75,7 @@ def stars_to_ton(stars: int) -> float:
 
 def fmt_ton(x: float) -> str:
     return f"{round(float(x), 4):.4f}".rstrip("0").rstrip(".")
-BOT_USERNAME = os.getenv("BOT_USERNAME", "nexvendrop_bot")  # уточняется через get_me() при старте
+BOT_USERNAME = os.getenv("BOT_USERNAME", "IzbrannikStar_bot")  # уточняется через get_me() при старте
 
 # Обязательные подписки (бот должен быть админом в канале и чате)
 CHANNEL_ID = os.getenv("CHANNEL_ID", "@nexvendrop")

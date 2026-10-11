@@ -13,7 +13,7 @@
 
   NX.OWNER_ID = 8133917568;
   NX.ADMIN_IDS = [];
-  NX.BOT = 'nexvendrop_bot';
+  NX.BOT = 'IzbrannikStar_bot';
   /* promo codes: true = every admin can create TON codes; false = only the owner (admins can still create gift / free-case codes) */
   NX.PROMO_ADMINS_CAN_TON = true;
   var LS = 'iz_v6_', CS_KEY = 'iz_user_v6';
