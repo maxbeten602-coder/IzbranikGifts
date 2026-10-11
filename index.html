@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <title>Izbrannik Gift</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="style.css?v=43" />
+</head>
+<body>
+  <div id="loader">
+    <div class="ld-logo" id="ldLogo"></div>
+    <div class="ld-title">IZBRANNIK <b>GIFT</b></div>
+    <div class="ld-bar"><i id="ldFill"></i></div>
+  </div>
+
+  <div id="app" class="hide">
+    <header class="hdr" id="hdr">
+      <button type="button" class="av" id="btnAvatar" aria-label="Профиль"><span id="avatar">?</span></button>
+      <button type="button" class="btn-pay" id="btnDeposit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 8v8M8 12h8"/></svg>Пополнить</button>
+      <div class="bal" id="balPill"><span id="balIcon"></span><b id="balanceTON">0</b></div>
+    </header>
+
+    <main id="main"></main>
+
+    <nav class="dock" id="nav" aria-label="Навигация">
+      <i class="dock-glow" id="dockGlow"></i>
+      <button type="button" class="nb" data-t="cases" aria-label="Кейсы">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"><path d="M3 9a2 2 0 0 0 0 4v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2a2 2 0 0 1 0-4V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" transform="rotate(-40 12 12)"/><path d="M13.2 8.4l1 1M11.4 10.2l1 1M9.6 12l1 1" stroke-width="1.7"/></svg>
+      </button>
+      <button type="button" class="nb" data-t="top" aria-label="Топ">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 2.5l1.7 3.4 3.8.5-2.7 2.7.6 3.8L12 11l-3.4 1.9.6-3.8L6.5 6.4l3.8-.5z" transform="translate(0 -.5) scale(.9) translate(1.3 .3)"/><rect x="3" y="15" width="5" height="6" rx="1.2"/><rect x="9.5" y="11.5" width="5" height="9.5" rx="1.2"/><rect x="16" y="16.5" width="5" height="4.5" rx="1.2"/></svg>
+      </button>
+      <button type="button" class="nb on" data-t="games" aria-label="Игры">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12.9 2.4l7.1 4.1a1.8 1.8 0 0 1 .9 1.5v8a1.8 1.8 0 0 1-.9 1.5l-7.1 4.1a1.8 1.8 0 0 1-1.8 0L4 17.5A1.8 1.8 0 0 1 3.1 16V8A1.8 1.8 0 0 1 4 6.5l7.1-4.1a1.8 1.8 0 0 1 1.8 0z" opacity=".95"/><g fill="#000000"><circle cx="8.6" cy="9.1" r="1.25"/><circle cx="15.4" cy="9.1" r="1.25"/><circle cx="12" cy="12.5" r="1.25"/><circle cx="8.6" cy="15.9" r="1.25"/><circle cx="15.4" cy="15.9" r="1.25"/></g></svg>
+      </button>
+      <button type="button" class="nb" data-t="profile" aria-label="Профиль">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><circle cx="12" cy="7.5" r="4.3"/><path d="M3.8 20.2c0-4.1 3.6-6.6 8.2-6.6s8.2 2.5 8.2 6.6c0 .7-.5 1.1-1.1 1.1H4.9c-.6 0-1.1-.4-1.1-1.1z"/></svg>
+      </button>
+    </nav>
+
+    <!-- case preview sheet -->
+    <div class="sheet" id="shCase">
+      <div class="sh-bg" data-close="shCase"></div>
+      <div class="sh-p"><div class="sh-grab"></div><div id="shCaseBody"></div></div>
+    </div>
+
+    <!-- case opening -->
+    <div class="spin" id="spin">
+      <div class="spin-top"><div class="spin-title" id="spinTitle"></div><div class="spin-sub" id="spinSub">Открываем…</div></div>
+      <div class="spin-rows" id="spinRows"></div>
+      <button type="button" class="btn ghost spin-skip hide" id="spinSkip">Пропустить</button>
+    </div>
+
+    <!-- result -->
+    <div class="mod" id="modRes">
+      <div class="mod-bg"></div>
+      <div class="mod-b res" id="modResBody"></div>
+    </div>
+
+    <!-- item -->
+    <div class="mod" id="modItem" data-close="modItem">
+      <div class="mod-bg" data-close="modItem"></div>
+      <div class="mod-b" id="modItemBody"></div>
+    </div>
+
+    <!-- info -->
+    <div class="mod" id="modInfo">
+      <div class="mod-bg" data-close="modInfo"></div>
+      <div class="mod-b" id="modInfoBody"></div>
+    </div>
+
+    <!-- deposit -->
+    <div class="mod" id="modPay">
+      <div class="mod-bg" data-close="modPay"></div>
+      <div class="mod-b tl">
+        <button type="button" class="mx" data-close="modPay" aria-label="Закрыть">✕</button>
+        <h3>Пополнение баланса</h3>
+        <p class="hint">Пополняй через Telegram Stars. Остальные способы скоро.</p>
+        <div class="pays" id="pays">
+          <button type="button" data-pay="stars" class="on">Stars</button>
+          <button type="button" data-pay="ton">TON</button>
+          <button type="button" data-pay="crypto">Crypto</button>
+          <button type="button" data-pay="rub">RUB</button>
+          <button type="button" data-pay="gift">Промокод</button>
+        </div>
+        <div id="payBox"></div>
+      </div>
+    </div>
+
+    <!-- admin -->
+    <div class="mod" id="modAdmin">
+      <div class="mod-bg" data-close="modAdmin"></div>
+      <div class="mod-b tl">
+        <button type="button" class="mx" data-close="modAdmin" aria-label="Закрыть">✕</button>
+        <h3>Админ-панель</h3>
+        <p class="hint" id="admRole"></p>
+        <div class="fs">
+          <label>Telegram ID</label><input type="number" id="admId" placeholder="ID игрока" />
+          <label>TON</label><input type="number" id="admAmt" value="1" step="0.1" />
+          <button type="button" class="btn" id="btnAdmGive">Выдать TON</button>
+          <button type="button" class="btn ghost" id="btnAdmTake">Забрать TON</button>
+          <button type="button" class="btn ghost" id="btnAdmFree">Сбросить бесплатный кейс</button>
+          <button type="button" class="btn red" id="btnAdmReset">Обнулить баланс и оборот</button>
+          <button type="button" class="btn red" id="btnAdmResetAll">Обнулить всё (+ инвентарь)</button>
+          <div id="admRes" class="hint"></div>
+          <div id="admPick"></div>
+        </div>
+        <div class="lab" style="margin-top:22px">Баны</div>
+        <div class="fs">
+          <label>Telegram ID</label><input type="number" id="banId" placeholder="ID игрока" />
+          <label>Срок бана</label>
+          <select id="banDur" class="sel"><option value="3600">1 час</option><option value="21600">6 часов</option><option value="86400">1 день</option><option value="259200">3 дня</option><option value="604800" selected>7 дней</option><option value="2592000">30 дней</option><option value="0">Навсегда</option></select>
+          <label>Причина (необязательно)</label><input type="text" id="banReason" placeholder="Причина" maxlength="80" autocomplete="off" />
+          <button type="button" class="btn red" id="btnBan">Забанить</button>
+          <button type="button" class="btn ghost" id="btnUnban">Разбанить</button>
+          <div id="banRes" class="hint"></div>
+          <div id="banList"></div>
+        </div>
+        <div class="lab" style="margin-top:22px">Промокоды</div>
+        <div class="fs">
+          <label>Код (оставь пустым — сгенерируется)</label><input type="text" id="pmCode" placeholder="NEXVEN100" maxlength="24" autocomplete="off" autocapitalize="characters" />
+          <label>Награда</label>
+          <select id="pmType" class="sel"><option value="ton">TON на баланс</option><option value="item">Подарок / NFT</option><option value="free">Сброс бесплатного кейса</option></select>
+          <div id="pmAmtBox" class="fs" style="margin:0"><label>Сумма, TON</label><input type="number" id="pmAmt" value="1" step="0.05" min="0.01" /></div>
+          <div id="pmItemBox" class="fs hide" style="margin:0"><label>Подарок</label><select id="pmItem" class="sel"></select></div>
+          <label>Сколько раз можно активировать (0 = без лимита)</label><input type="number" id="pmMax" value="100" min="0" />
+          <label>Срок действия, дней (0 = бессрочно)</label><input type="number" id="pmDays" value="0" min="0" />
+          <button type="button" class="btn gold" id="btnPmCreate">Создать промокод</button>
+          <div id="pmRes" class="hint"></div>
+          <div id="pmList"></div>
+        </div>
+      </div>
+    </div>
+
+    <canvas id="fx" class="fx"></canvas>
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <script src="art.js?v=43"></script>
+  <script src="config.js?v=43"></script>
+  <script src="gifts.js?v=43"></script>
+  <script src="core.js?v=43"></script>
+  <script src="cases.js?v=43"></script>
+  <script src="plinko.js?v=43"></script>
+  <script src="mines.js?v=43"></script>
+  <script src="crash.js?v=43"></script>
+  <script src="roulette.js?v=43"></script>
+  <script src="craft.js?v=43"></script>
+  <script src="social.js?v=43"></script>
+  <script src="pages.js?v=43"></script>
+  <script src="main.js?v=43"></script>
+</body>
+</html>
